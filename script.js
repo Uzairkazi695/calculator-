@@ -5,6 +5,8 @@ const deleteNum = document.querySelector('.delete')
 const displayInput = document.querySelector('.displayInput')
 const display = document.querySelector('.display')
 const equal = document.querySelector('.equal')
+const decimal = document.querySelector('.decimal')
+window.addEventListener('keydown',handleKeyPress)
 
 let currentNum = ''
 let prevNum = ''
@@ -35,6 +37,10 @@ equal.addEventListener('click', (e)=>{
     // console.log(operation(prevNum, operatorDisplay, currentNum))
 })
 
+decimal.addEventListener('click', (e)=>{
+    handleDecimal(e.target.textContent)
+})
+
 clear.addEventListener('click', ()=>{
    prevNum = ''
    currentNum = ''
@@ -58,6 +64,14 @@ function handleOperator(op){
         operatorDisplay = op
         prevNum = currentNum
         currentNum = ''
+}
+
+function handleDecimal(e) {
+    if(!currentNum.includes('.')) {
+        currentNum += '.'
+    } else {
+        e.disabled = true
+    }
 }
 
 function operation(num1,operatorDisplay, num2) {
@@ -85,4 +99,11 @@ function operation(num1,operatorDisplay, num2) {
     num2 = num1.toString()
 }
 
-console.log(operation('5','-','2'))
+function handleKeyPress(e) {
+    e.preventDefault()
+    if(e.key >= 0 && e.key <= 9) {
+        handleNumber(e.key)
+    } else if(e.key === '+' || e.key === '-' || e.key === '/' || e.key === '*') {
+        handleOperator(e.key)
+    }
+ }
