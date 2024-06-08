@@ -11,6 +11,7 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    background-color: darkslategrey;
 }
 
 .container {
@@ -24,13 +25,14 @@ body {
     align-items: center;
     flex-wrap: wrap;
     cursor: pointer;
+    border-radius: 10px;
 
 }
 
 .displayInput {
     width: 19rem;
-    height: 4.375rem;
-    margin-top: 5px;
+    height: 5rem;
+    margin-top: 10px;
     margin-bottom: 20px;
     background-color: white;
     display: flex;
@@ -44,13 +46,16 @@ button {
     width: 4rem;
     margin: 5px;
     cursor: pointer;
+    border-radius: 50%;
 
 }
 .equal {
     margin-left: 85px;
     border: 1px solid white;
     background-color: orange;
-
+}
+.equal:hover {
+    border: 1px solid orangered;
 }
 
 .number {
@@ -65,7 +70,18 @@ button {
     border: 2px solid white;
     background-color: orange;
 }
-.opretor:hover {
-    border: 1px solid darkorange;
+.operator:hover {
+    border: 1px solid orangered;
+}
+.clear,
+.delete {
+    border: 2px solid white;
+    background-color: lightblue;
 }
 
+.delete:hover {
+    border: 1px solid darkcyan;
+}
+.clear:hover {
+    border: 1px solid darkcyan;
+}
